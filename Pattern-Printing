@@ -32,3 +32,822 @@ Triangle of 6 using * -
 *  *  *  *
 *  *  *  *  *
 *  *  *  *  *  *
+
+
+//half-left pattern printing
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows;
+    // Getting the number of rows.
+    cout << "Enter the Number of rows - ";
+    cin >> rows;
+
+    cout << "Triangle of " << rows << " using integers -\n";
+
+    // Main logic to print triangle. 
+    for( int i = 0; i < rows; i++ ) {
+        for( int j = 0; j <= i; j++ ){
+            cout << i + 1 << " ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter the Number of rows - 6
+Triangle of 6 using * -
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+6 6 6 6 6 6 
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows;
+    // Getting the number of rows.
+    cout << "Enter the Number of rows - ";
+    cin >> rows;
+
+    cout << "Triangle of " << rows << " using characters -\n";
+
+    // Main logic to print triangle. 
+    for( int i = 0; i < rows; i++ ) {
+        for( int j = 0; j <= i; j++ ){
+            cout << (char)('A' + j) << " ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter the Number of rows - 6
+Triangle of 6 using * -
+A 
+A B 
+A B C 
+A B C D 
+A B C D E 
+A B C D E F 
+
+
+
+
+
+
+
+Rectangle pattern
+Source Code:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows, cols;
+    // Getting dimensions of the rectangle.
+    cout << "Enter the number of rows in rectangle - ";
+    cin >> rows;
+
+    cout << "Enter the number of columns in rectangle - ";
+    cin >> cols;
+
+
+    cout << "Rectangle of dimensions " << rows << "*" << cols << endl;
+
+    // Main logic to print Rectangle. 
+    for( int i = 0; i < rows; i++ ) {
+        for( int j = 0; j < cols; j++ ){
+            cout << "* ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+Output :
+
+Enter the number of rows in rectangle - 4
+Enter the number of columns in rectangle - 6
+Rectangle of dimensions 4*6
+* * * * * * 
+* * * * * * 
+* * * * * * 
+* * * * * * 
+
+
+
+
+
+
+
+
+
+
+
+Hollow Rectangle Pattern
+Source Code:
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+  int rows, cols;
+  // Getting dimensions of rectangle.
+  cout << "Enter the number of rows in rectangle - ";
+  cin >> rows;
+
+  cout << "Enter the number of columns in rectangle - ";
+  cin >> cols;
+
+  cout << "Rectangle of dimensions " << rows << "*" << cols << endl;
+
+  // Main logic to print hollow rectangle. 
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+
+      // If the index is at the border, then print *. 
+      if (i == 0 || i == rows - 1 || j == 0 || j == cols - 1)
+        cout << "* ";
+      else
+        cout << "  ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
+
+Output:
+
+Enter the number of rows in rectangle - 4
+Enter the number of columns in rectangle - 6
+Rectangle of dimensions 4*6
+* * * * * * 
+*         * 
+*         * 
+* * * * * * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Floyd's triangle
+Source Code:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows;
+    // Getting the number of rows.
+    cout << "Enter the Number of rows - ";
+    cin >> rows;
+
+    cout << "Floyd's Triangle of " << rows << " rows." << endl;
+
+    // Main logic to print Floyd's Triangle. 
+    int counter = 1; 
+    for( int i = 0; i < rows; i++ ) {
+        for( int j = 0; j <= i; j++ ){
+            cout << (counter++) << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
+
+Output:
+
+Enter the Number of rows - 6
+Floyd's Triangle of 6 rows.
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+16 17 18 19 20 21
+
+
+
+
+
+
+
+
+
+
+The next code will contain all types of triangles possible either made up by "*" or " ".
+Source Code :
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows;
+    // Getting the number of rows.
+    cout << "Enter the Number of rows - ";
+    cin >> rows;
+
+    cout << "Butterfly Pattern of " << rows << " rows." << endl;
+
+    // Main logic to print the Butterfly pattern.
+    // Printing upper part.
+    for( int i = 0; i <= rows; i++ ){
+        // Print left side stars.
+        for( int j = 0; j <= i; j++ ){
+            cout << "* ";
+        }
+        
+        // Print spaces.
+        int spaces = 2 * (rows - i);
+        for( int j = 0; j < spaces; j++){
+            cout << "  ";
+        }
+        
+        // Print right side stars.
+        for( int j = 0; j <= i; j++ ){
+            cout << "* ";
+        }
+
+        cout << endl;
+    }
+    
+    // Printing bottom part.
+    for( int i = rows - 1; i >= 0; i-- ){
+        
+        // Print left side spaces.
+        for( int j = 0; j <= i; j++ ){
+            cout << "* ";
+        }
+        
+        // Print spaces.
+        int spaces = 2 * (rows - i);
+        for( int j = 0; j < spaces; j++){
+            cout << "  ";
+        }
+        
+        // Print right side stars.
+        for( int j = 0; j <= i; j++ ){
+            cout << "* ";
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
+
+Output:
+
+Enter the Number of rows - 6
+Butterfly Pattern of 6 rows.
+*                         * 
+* *                     * * 
+* * *                 * * * 
+* * * *             * * * * 
+* * * * *         * * * * * 
+* * * * * *     * * * * * * 
+* * * * * * * * * * * * * * 
+* * * * * *     * * * * * * 
+* * * * *         * * * * * 
+* * * *             * * * * 
+* * *                 * * * 
+* *                     * * 
+*                         * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Source Code:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows;
+    // Getting the number of rows.
+    cout << "Enter the Number of rows - ";
+    cin >> rows;
+
+    cout << "Pascal's Triangle of " << rows << " rows." << endl;
+
+    // Main logic to print Pascal's triangle.
+    for( int i = 0; i <  rows; i++){
+        int spaces = rows - i;
+        // Print spaces.
+        for( int j = 0; j < spaces; j++){
+            cout<<"  ";
+        }
+
+        int coefficient;
+        // Print values.
+        for( int j = 0; j <= i; j++){
+            // Update coefficient's value
+            if( j == 0 )
+                coefficient = 1;
+            else 
+                coefficient = coefficient * (i - j + 1) / j;
+
+            cout << coefficient << "   ";
+        }
+
+        cout << endl;
+    }
+
+
+    return 0;
+}
+
+Output:
+
+Enter the Number of rows - 6
+Pascal's Triangle of 6 rows.
+            1   
+          1   1   
+        1   2   1   
+      1   3   3   1   
+    1   4   6   4   1   
+  1   5   10   10   5   1 
+
+
+
+
+
+
+
+
+
+
+
+Source Code:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int rows;
+    // Getting the number of rows.
+    cout << "Enter the Number of rows - ";
+    cin >> rows;
+
+    cout << "Full Pyramid of " << rows << " using * -\n";
+
+    // Main logic to print full pyramid. 
+    for( int i = 0; i < rows; i++ ) {
+        // Print spaces.
+        int spaces = rows - i;
+
+        for( int j = 0; j < spaces; j++){
+            cout <<"  ";
+        }
+        
+        // Print stars.
+        for( int j = 0; j < 2 * i - 1; j++){
+            cout <<"* ";
+        }
+
+        cout << endl;
+
+    }
+    
+    return 0;
+}
+
+Output:
+
+Enter the Number of rows - 6
+Full Pyramid of 6 using * -
+            
+          * 
+        * * * 
+      * * * * * 
+    * * * * * * * 
+  * * * * * * * * * 
+
+Print pattern of Stars.
+The following code contains some of the pattern programs in c++ combined, which we have already seen in the previous sections of this article.
+
+Source Code:
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void halfPyramid();
+void fullPyramid();
+void rectangle();
+void hollowRectangle();
+
+int main() {
+  int choice;
+
+  do {
+    // Give options to the user.
+    cout << "!!! Press 0 to Exit !!!\n";
+
+    cout << "1. Print Half Pyramid of Stars\n";
+    cout << "2. Print Full Pyramid of Stars\n";
+    cout << "3. Print Rectangle of Stars\n";
+    cout << "4. Print Hollow Rectangle of Stars\n";
+
+    // Take input of choice
+    cout << "Enter the Choice: ";
+    cin >> choice;
+
+    switch (choice) {
+      // If he entered 0, exit.
+    case 0:
+      return 0;
+      // Print half pyramid on entering 1.
+    case 1:
+      halfPyramid();
+      break;
+      // Print full pyramid on entering 2.
+    case 2:
+      fullPyramid();
+      break;
+      // Print rectangle on entering 3.
+    case 3:
+      rectangle();
+      break;
+      // Print hollow rectangle on entering 5.
+    case 4:
+      hollowRectangle();
+      break;
+      // If the choice doesn't match, print 
+      // the following message.
+    default:
+      cout << "\n !!! Incorrect Choice !!!";
+    }
+  } while (choice != 0);
+
+  return 0;
+}
+
+void halfPyramid() {
+  int rows;
+  // Getting the number of rows.
+  cout << "Enter the Number of rows - ";
+  cin >> rows;
+
+  cout << "Triangle of " << rows << " using * -\n";
+
+  // Main logic to print triangle. 
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j <= i; j++) {
+      cout << "*  ";
+    }
+    cout << endl;
+  }
+}
+
+void fullPyramid() {
+  int rows;
+  // Getting the number of rows.
+  cout << "Enter the Number of rows - ";
+  cin >> rows;
+
+  cout << "Full Pyramid of " << rows << " using * -\n";
+
+  // Main logic to print full pyramid. 
+  for (int i = 0; i < rows; i++) {
+
+    int spaces = rows - i;
+
+    for (int j = 0; j < spaces; j++) {
+      cout << "  ";
+    }
+
+    for (int j = 0; j < 2 * i + 1; j++) {
+      cout << "* ";
+    }
+
+    cout << endl;
+
+  }
+}
+
+void rectangle() {
+  int rows, cols;
+  // Getting dimensions of rectangle.
+  cout << "Enter the number of rows in rectangle - ";
+  cin >> rows;
+
+  cout << "Enter the number of columns in rectangle - ";
+  cin >> cols;
+
+  cout << "Rectangle of dimensions " << rows << "*" << cols << endl;
+
+  // Main logic to print Rectangle. 
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      cout << "* ";
+    }
+    cout << endl;
+  }
+}
+
+void hollowRectangle() {
+  int rows, cols;
+  // Getting dimensions of the rectangle.
+  cout << "Enter the number of rows in rectangle - ";
+  cin >> rows;
+
+  cout << "Enter the number of columns in rectangle - ";
+  cin >> cols;
+
+  cout << "Rectangle of dimensions " << rows << "*" << cols << endl;
+
+  // Main logic to print hollow rectangle. 
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+
+      // If the index is at the border, then print *. 
+      if (i == 0 || i == rows - 1 || j == 0 || j == cols - 1)
+        cout << "* ";
+      else
+        cout << "  ";
+    }
+    cout << endl;
+  }
+}
+
+Output:
+
+!!! Press 0 to Exit !!!
+1. Print Half Pyramid of Stars
+2. Print Full Pyramid of Stars
+3. Print Rectangle of Stars
+4. Print Hollow Rectangle of Stars
+Enter the Choice: 1
+Enter Number of rows - 4
+Triangle of 4 using * -
+*  
+*  *  
+*  *  *  
+*  *  *  *  
+!!! Press 0 to Exit !!!
+1. Print Half Pyramid of Stars
+2. Print Full Pyramid of Stars
+3. Print Rectangle of Stars
+4. Print Hollow Rectangle of Stars
+Enter the Choice: 2
+Enter the Number of rows - 4
+Full Pyramid of 4 using * -
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+!!! Press 0 to Exit !!!
+1. Print Half Pyramid of Stars
+2. Print Full Pyramid of Stars
+3. Print Rectangle of Stars
+4. Print Hollow Rectangle of Stars
+Enter the Choice: 3
+Enter the number of rows in rectangle - 4
+Enter the number of columns in rectangle - 6
+Rectangle of dimensions 4*6
+* * * * * * 
+* * * * * * 
+* * * * * * 
+* * * * * * 
+!!! Press 0 to Exit !!!
+1. Print Half Pyramid of Stars
+2. Print Full Pyramid of Stars
+3. Print Rectangle of Stars
+4. Print Hollow Rectangle of Stars
+Enter the Choice: 4
+Enter the number of rows in rectangle - 4
+Enter the number of columns in rectangle - 6
+Rectangle of dimensions 4*6
+* * * * * * 
+*         * 
+*         * 
+* * * * * * 
+!!! Press 0 to Exit !!!
+1. Print Half Pyramid of Stars
+2. Print Full Pyramid of Stars
+3. Print Rectangle of Stars
+4. Print Hollow Rectangle of Stars
+Enter the Choice: 0
+
+Quiz Pop
+new tag
+Quiz Type
+SCQ
+100
+Success Rate:
+35%
+What is the significance of the endl statement in C++ pattern programming?
+
+ 
+
+It ends the program execution.
+It prints a star.
+It moves the cursor to the next line.
+It initializes the loop variables.
+Submit
+C++ Print Triangle Star Pattern
+1. Simple triangle.
+Code
+// C++ code to demonstrate triangle pattern
+#include <iostream>
+using namespace std;
+ 
+// Function to demonstrate printing pattern
+void simpleTriangle(int n)
+{
+    // Number of spaces
+    int i, j, k = n;
+ 
+    // Outer loop to handle number of rows
+    // n in this case
+    for (i = 1; i <= n; i++) {
+ 
+        // Inner loop for columns
+        for (j = 1; j <= n; j++) {
+ 
+            // Condition to print star pattern
+            if (j >= k)
+                cout << "* ";
+            else
+                cout << " ";
+        }
+        k--;
+        cout << "\n";
+    }
+}
+ 
+// Driver Code
+int main()
+{
+    int n = 5;
+    // Function Call
+    simpleTriangle(n);
+    return 0;
+}
+
+Output
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Inverted triangle.
+Code
+// C++ Program to print the inverted triangle pattern
+#include <iostream>
+using namespace std;
+ 
+// function to print inverted triangle
+void printInvTriangle(int n)
+{
+ 
+    // outer loop to go thruough every row
+    for (int i = 0; i < n; i++) {
+ 
+        // leading space counter
+        int space = i;
+ 
+        // inner loop to print space and star * in each row
+        for (int j = 0; j < 2 * n - i - 1; j++) {
+ 
+            // condition to check weather the star * or
+            // whitespace is to be printed
+            if (space) {
+                cout << "  ";
+                space--;
+            }
+            else {
+                cout << "* ";
+            }
+        }
+        cout << endl;
+    }
+}
+ 
+// driver code
+int main()
+{
+    printInvTriangle(5);
+ 
+    return 0;
+}
+
+
+Output
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+
+C++ Print Pattern of Numbers
+Code
+// C++ code to demonstrate printing
+// pattern of numbers
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing
+// pattern
+void numpat(int n)
+{
+	// initializing starting number
+	int num = 1;
+
+	// Outer loop to handle number of rows
+	// n in this case
+	for (int i = 0; i < n; i++) {
+
+		// Inner loop to handle number of columns
+		// values changing acc. to outer loop
+		for (int j = 0; j <= i; j++)
+			cout << num << " ";
+
+		// Incrementing number at each column
+		num = num + 1;
+
+		// Ending line after each row
+		cout << endl;
+	}
+}
+
+// Driver Code
+int main()
+{
+	int n = 5;
+
+	// Function Call
+	numpat(n);
+	return 0;
+}
+
+
+Output
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
