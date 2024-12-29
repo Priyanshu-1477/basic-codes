@@ -1,4 +1,4 @@
-//pyramid patterns
+//half-left pyramid pattern
 #include<bits/stdc++.h>
 using namespace std;
 
