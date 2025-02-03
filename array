@@ -83,10 +83,92 @@ int main() {
 
 
 
+// remove duplicates from the array and show the no. of unique digits
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++){
+	    cin>>arr[i];
+	}
+	int count=1;
+	for(int i=0;i<n-1;i++){
+	    if(arr[i]!=arr[i+1]){
+	        cout<<arr[i]<<" ";
+	        count++;
+	    }
+	}
+	cout<<arr[n-1];
+	cout<<endl;
+	cout<<count;
+
+}
 
 
 
 
+// reverse first p left elements of an array from left
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++){
+	    cin>>arr[i];
+	}
+	int p;
+	cin>>p;
+	for(int i=0;i<(p/2);i++){
+	    swap(arr[i],arr[p-1-i]);
+	}
+	
+	for(int i=0;i<n;i++){
+	    cout<<arr[i]<<" ";
+	}
+	
+	
+
+}
+
+
+// reverse first p elements of an array from right
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++){
+	    cin>>arr[i];
+	}
+	int p;
+	cin>>p;
+	int j=1;
+	for(int i=n-p;i<n-p/2;i++){
+	    swap(arr[i],arr[n-j]);
+	    j=j+1;
+	}
+	for(int i=0;i<n;i++){
+	    cout<<arr[i]<<" ";
+	}
+
+}
 
 
 
