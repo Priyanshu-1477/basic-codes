@@ -172,7 +172,171 @@ int main() {
 
 
 
+// integer to roman
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a = n;
+    int b = n;
+    int l;
+    int c = 0;
+    while (a > 0) {
+        a = a / 10;
+        c++;
+    }
+    int arr[c];
+    for (int k = 0; k < c; k++) {
+        l = b % 10;
+        b = b / 10;
+        arr[k] = l;
+    }
+    
+    // thousands place digit
+    
+    if (arr[3] <= 3) {
+        for (int i = 0; i < arr[3]; i++) {
+            cout << "M";
+        }
+    }
+    
+    // hundreds place digit
+    
+    if (arr[2] <= 3) {
+        for (int i = 0; i < arr[2]; i++) {
+            cout << "C";
+        }
+    }
+    else if (arr[2] == 4) cout << "CD";
+    else if (arr[2] == 5) cout << "D";
+    else if (arr[2] > 5 && arr[2] < 9) {
+        cout << "D";
+        for (int i = 0; i < arr[2] - 5; i++) {
+            cout << "C";
+        }
+    }
+    else if (arr[2] == 9) cout << "CM";
+    
+    // tens place digit 
+    
+    if (arr[1] <= 3) {
+        for (int i = 0; i < arr[1]; i++) {
+            cout << "X";
+        }
+    }
+    else if (arr[1] == 4) cout << "XL";
+    else if (arr[1] == 5) cout << "L";
+    else if (arr[1] > 5 && arr[1] < 9) {
+        cout << "L";
+        for (int i = 0; i < arr[1] - 5; i++) {
+            cout << "X";
+        }
+    }
+    else if (arr[1] == 9) cout << "XC";
+    
+    // ones place digit 
+    
+    if (arr[0] <= 3) {
+        for (int i = 0; i < arr[0]; i++) {
+            cout << "I";
+        }
+    }
+    else if (arr[0] == 4) cout << "IV";
+    else if (arr[0] == 5) cout << "V";
+    else if (arr[0] > 5 && arr[0] < 9) {
+        cout << "V";
+        for (int i = 0; i < arr[0] - 5; i++) {
+            cout << "I";
+        }
+    }
+    else if (arr[0] == 9) cout << "IX";
+}
+
+
+
+// roman to integer
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s;
+    cin>>s;
+    int n=0;
+    int k = s.size();
+    for(int i=0;i<k;i++){
+        if(s[i]=='M' && s[i-1]!='C') {
+            n=n+1000;
+        } 
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='M' && s[i-1]=='C') {
+            n=n+900;
+        } 
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='D' && s[i-1]!='C'){
+            n=n+500;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='D' && s[i-1]=='C'){
+            n=n+400;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='C' && s[i+1]!='D' && s[i-i]!='X'){
+            n=n+100;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='C' && s[i-i]=='X'){
+            n=n+90;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='L' && s[i-1]!='X'){
+            n=n+50;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='L' && s[i-1]=='X'){
+            n=n+40;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='X' && s[i+1]!='L' && s[i-1]!='I'){
+            n=n+10;
+        }
+    }
+    
+    for(int i=0;i<k;i++){
+        if(s[i]=='X' && s[i-1]=='I'){
+            n=n+9;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='V' && s[i-1]!='I'){
+            n=n+5;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='V' && s[i-1]=='I'){
+            n=n+4;
+        }
+    }
+    for(int i=0;i<k;i++){
+        if(s[i]=='I' && s[i+1]!='V'){
+            n=n+1;
+        }
+    }
+    cout<<n;
+}
 
 
 
