@@ -49,6 +49,8 @@ void bubble_sort(int arr[], int n){
     }
 }
 
+ex- 1 2 3 5 4 7 6 3
+
 int main() {
 	// your code goes here
 	int n;
