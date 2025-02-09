@@ -89,7 +89,7 @@ int main() {
         cout << second << ":";
     }
     
-    // 
+    // third and fourth digit extraction 
     
     int max2 = arr[2];
     int d;
