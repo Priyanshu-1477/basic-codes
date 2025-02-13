@@ -20,9 +20,15 @@ int main() {
     int n;
     cin >> n;
     int b = n;
+    int a=n;
     int l;
     int c = 4;
     int arr[c];
+    int f1;
+    int f2;
+    int f3;
+    int f4;
+    int cnt;
     for (int k = 0; k < 4; k++) {
         l = b % 10;
         b = b / 10;
@@ -41,7 +47,7 @@ int main() {
         for (int i = 0; i < c; i++) {
             if (arr[i] == 2) {
                 swap(arr[0], arr[i]);
-                cout << arr[0];
+                f1=arr[0];
                 m++;
                 break;
             }
@@ -49,7 +55,7 @@ int main() {
         if (m == 0) {
             for (int i = 0; i < c; i++) {
                 if (arr[i] == 1) {
-                    cout << arr[i];
+                    f1= arr[i];
                     swap(arr[0], arr[i]);
                     m++;
                     break;
@@ -59,7 +65,7 @@ int main() {
         if (m == 0) {
             for (int i = 0; i < c; i++) {
                 if (arr[i] == 0) {
-                    cout << arr[i];
+                    f1= arr[i];
                     swap(arr[0], arr[i]);
                     break;
                 }
@@ -83,13 +89,13 @@ int main() {
 
         if (arr[0] < 2) {
             swap(arr[s], arr[1]);
-            cout << max << ":";
+            f2= max;
         }
 
         // (DID MISTAKE IN THIS STEP) if the first digit is 2 then the next digit will be the digit just less than or equal to 3 
 
         if (arr[0] == 2) {
-            int second;
+            int second=0;
             for (int i = 1; i < c; i++) {
                 if (arr[i] <= 3) {
                     if (arr[i] >= second) {
@@ -99,7 +105,7 @@ int main() {
 
                 }
             }
-            cout << second << ":";
+            f2 = second ;
         }
 
         // third and fourth digit extraction 
@@ -116,20 +122,29 @@ int main() {
         if (max2 > 5) {
             swap(arr[w], arr[3]);
             arr[3] = max2;
-            cout << arr[2] << arr[3];
+            f3=arr[2]; f4= arr[3];
         }
         else {
             swap(arr[2], arr[w]);
-            cout << arr[2] << arr[3];
+            f3=arr[2];f4=  arr[3];
         }
     }
     else {
         if(arr[1]>1){
-            cout<<arr[0]<<arr[3]<<":"<<arr[1]<<arr[2];
+            f1=arr[0];f2=arr[3];f3=arr[1];f4=arr[2];
         }
         else if(arr[1]<=1){
-            cout<<arr[1]<<arr[3]<<":"<<arr[0]<<arr[2];
+            f1=arr[1];f2=arr[3];f3=arr[0];f4=arr[2];
         }
     }
+    if(f1<=2 && f3<=5){
+        cout<<f1<<f2<<":"<<f3<<f4;
+    }
+    else if (f1>2 || f3>5){
+        cout<<"invalid input";
+    }
+    
+    
+    
 
 }
