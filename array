@@ -341,6 +341,41 @@ int main() {
 
 
 
+// Increment the given integer() by one and return the resulting array of digits.
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    arr[n - 1]++;
+    
+    int c = 0;
+    for (int i = 0; i < n-1; i++) {
+        if (arr[n - i - 1] == 10 && c == i) {
+            arr[n-i-1]=0;
+            arr[n-i-2]++;
+            c++;
+        }
+    }
+    if (arr[0] == 10) {
+        cout << "1 " << "0 ";
+    }
+    else if (arr[0] != 10) {
+        cout << arr[0]<<" ";
+    }
+    for (int i = 1; i < n; i++) {
+        cout << arr[i]<<" ";
+    }
+}
+
 
 
 
