@@ -341,7 +341,7 @@ int main() {
 
 
 
-// Increment the given integer() by one and return the resulting array of digits.
+// Increment the given integer(array format) by one and return the resulting array of digits.
 
 
 #include <bits/stdc++.h>
