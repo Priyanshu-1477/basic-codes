@@ -13,6 +13,7 @@ int main() {
     }
     int k;
     cin >> k;
+    int l=k%n;
     int a = 0;
     for (int i = n - k; i < n; i++) {
         for (int j = a; j < k; j++) {
