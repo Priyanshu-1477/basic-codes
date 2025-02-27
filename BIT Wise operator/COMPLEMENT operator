@@ -45,3 +45,29 @@ Here, we can see the 2's complement of 36 (i.e. -36) is 11011100. This value is 
 
 Hence, we can say that the bitwise complement of 35 = -36.
 
+Example 4: Bitwise Complement
+#include <iostream>
+
+int main() {
+    int num1 = 35;
+    int num2 = -150;
+    cout << "~(" << num1 << ") = " << (~num1) << endl;
+    cout << "~(" << num2 << ") = " << (~num2) << endl;
+
+    return 0;
+}
+Run Code
+Output
+
+~(35) = -36
+~(-150) = 149
+In the above example, we declared two integer variables num1 and num2, and initialized them with the values of 35 and -150 respectively.
+
+We then computed their bitwise complement with the codes (~num1) and (~num2) respectively and displayed them on the screen.
+
+The bitwise complement of 35 = - (35 + 1) = -36
+i.e. ~35 = -36
+
+The bitwise complement of -150 = - (-150 + 1) = - (-149) = 149
+i.e. ~(-150) = 149
+This is exactly what we got in the output.
