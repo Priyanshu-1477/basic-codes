@@ -2,6 +2,8 @@
 
 The bitwise XOR ^ operator returns 1 if and only if one of the operands is 1. However, if both the operands are 0, or if both are 1, then the result is 0.
 
+(XOR of a & b will give output 0 if both are same & will give a if b is 0 or vice versa)
+
 The following truth table demonstrates the working of the bitwise XOR operator. Let a and b be two operands that can only take binary values i.e. 1 or 0.
 
 a	    b    	a ^ b
