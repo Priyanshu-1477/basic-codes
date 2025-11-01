@@ -55,3 +55,30 @@ int main() {
         }
     }
 }
+
+Take n numbers of inputs from the user. Specifically ask for the left child and right 
+child. Write a menu driven program to perform the following operations using 
+separate procedures:
+(a) Construct a linked binary tree.
+(b) Traverse the tree and find the output in the form of inorder representation.
+(c) Perform preorder and postorder traversal and generate output. Use recursive 
+function for traversing the tree.
+(d) Calculate the number and identify the leaf nodes.
+(e) Find the height of the created binary tree.
+(f) Delete the Last node of the binary tree.
+The program should contain two .cpp files, one should contain the main function and 
+menu (treeOperations.cpp) whereas the other file defOperations.cpp is to be used 
+for defining different operations.
+2. Implement a menu driven program to perform the following operations on a binary 
+search tree:
+(a) Create a BST for the list of given set of data: LINUX, OS2, DOS, XENIX, SOLARIS, 
+WINDOWS, VISTA, XP, UNIX, CPM.
+(b) Tabulate the number of comparisons undertaken for retrieving the following 
+keys: LINUX, XENIX, DOS, UNIX, CPM
+(c) Undertake the following operations on the BST
+(i) Insert MAC
+(ii) Delete WINDOWS
+(iii) Delete UNIX
+(iv) Delete the root node
+(d) Write a function to retrieve the elements from the tree in the sorted order.
+(e) Calculate the balance factor of all the nodes present in the BST.
