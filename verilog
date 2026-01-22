@@ -76,3 +76,38 @@ mux4to1 M0 (in[7:4],sel[1:0],t[1]);
 mux4to1 M1 (in[3:0],sel[1:0],t[0]);
 mux2to1 M2 (t,sel[2],out);
 endmodule
+
+
+
+import java.util.Scanner;
+
+class OnlineBanking {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter Principal Amount: ");
+            double principal = sc.nextDouble();
+
+            System.out.print("Enter Annual Interest Rate (%): ");
+            double rate = sc.nextDouble();
+
+            System.out.print("Enter Number of Months: ");
+            int months = sc.nextInt();
+
+            // Monthly interest calculation
+            double monthlyInterest = (principal * rate) / (12 * months);
+
+            System.out.println("Monthly Interest: " + monthlyInterest);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Error: Number of months cannot be zero.");
+        }
+        catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
+        finally {
+            sc.close();
+        }
+    }
+}
