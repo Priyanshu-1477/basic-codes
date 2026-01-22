@@ -150,3 +150,33 @@ class StudentMarks {
         }
     }
 }
+
+
+
+
+
+class User {
+    String name;
+    String email;
+
+    User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+}
+
+public class EcommerceApp {
+    public static void main(String[] args) {
+
+        User user = null;   // user not logged in
+
+        try {
+            // Attempting to access user details
+            System.out.println("User Name: " + user.name);
+            System.out.println("User Email: " + user.email);
+        }
+        catch (NullPointerException e) {
+            System.out.println("Error: User is not logged in.");
+        }
+    }
+}
