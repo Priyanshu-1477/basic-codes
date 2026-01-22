@@ -1,4 +1,4 @@
-Dataflow Model[1]
+System.inDataflow Model[1]
 module comp_4bit (
 input [3:0]a,b,
 output ag,bg,eq
@@ -177,6 +177,33 @@ public class EcommerceApp {
         }
         catch (NullPointerException e) {
             System.out.println("Error: User is not logged in.");
+        }
+    }
+}
+
+
+
+
+
+
+import java.util.*;
+
+class ATM {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter withdrawal amount: ");
+            int amount = sc.nextInt();
+
+            System.out.println("Withdrawal successful. Amount: " + amount);
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Error: Invalid user input. Please enter numeric value.");
+        }
+        finally {
+            sc.close();
         }
     }
 }
