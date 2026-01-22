@@ -111,3 +111,42 @@ class OnlineBanking {
         }
     }
 }
+
+
+
+
+
+
+import java.util.Scanner;
+
+class StudentMarks {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter number of students: ");
+            int n = sc.nextInt();
+
+            int[] marks = new int[n];
+
+            System.out.println("Enter marks of students:");
+            for (int i = 0; i < n; i++) {
+                marks[i] = sc.nextInt();
+            }
+
+            System.out.print("Enter student index to view marks: ");
+            int index = sc.nextInt();
+
+            System.out.println("Marks: " + marks[index]);
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Invalid student index.");
+        }
+        catch (Exception e) {
+            System.out.println("Invalid input.");
+        }
+        finally {
+            sc.close();
+        }
+    }
+}
