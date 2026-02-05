@@ -30,3 +30,27 @@ public class PrimeDemo {
         pt.start();
     }
 }
+
+
+
+class StudentExam extends Thread {
+    String exam;
+
+    StudentExam(String exam, String name) {
+        super(name);
+        this.exam = exam;
+    }
+
+    public void run() {
+        System.out.println(exam + " is being given by " + getName());
+    }
+}
+
+public class StudentSemester {
+    public static void main(String[] args) {
+        new StudentExam("Maths", "Student-1").start();
+        new StudentExam("Physics", "Student-2").start();
+        new StudentExam("Chemistry", "Student-3").start();
+        new StudentExam("CS", "Student-4").start();
+    }
+}
