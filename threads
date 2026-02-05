@@ -1,0 +1,32 @@
+class PrimeThread extends Thread {
+    int minPrime;
+
+    PrimeThread(int minPrime) {
+        this.minPrime = minPrime;
+    }
+
+    boolean isPrime(int n) {
+        if (n < 2) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++)
+            if (n % i == 0) return false;
+        return true;
+    }
+
+    public void run() {
+        int count = 0, num = minPrime + 1;
+        while (count < 10) {
+            if (isPrime(num)) {
+                System.out.println(num);
+                count++;
+            }
+            num++;
+        }
+    }
+}
+
+public class PrimeDemo {
+    public static void main(String[] args) {
+        PrimeThread pt = new PrimeThread(143);
+        pt.start();
+    }
+}
