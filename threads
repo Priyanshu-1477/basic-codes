@@ -54,3 +54,92 @@ public class StudentSemester {
         new StudentExam("CS", "Student-4").start();
     }
 }
+
+
+
+
+class TicketBooking implements Runnable {
+    int tickets;
+
+    TicketBooking(int tickets) {
+        this.tickets = tickets;
+    }
+
+    public synchronized void run() {
+        if (tickets > 0) {
+            System.out.println(Thread.currentThread().getName() + " booked a ticket");
+            tickets--;
+        } else {
+            System.out.println(Thread.currentThread().getName() + " - Tickets sold out");
+        }
+    }
+}
+
+public class TicketDemo {
+    public static void main(String[] args) {
+        TicketBooking tb = new TicketBooking(2);
+
+        new Thread(tb, "User-1").start();
+        new Thread(tb, "User-2").start();
+        new Thread(tb, "User-3").start();
+    }
+}
+
+
+
+
+
+class MessageTask implements Runnable {
+    String msg;
+
+    MessageTask(String msg) {
+        this.msg = msg;
+    }
+
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + ": " + msg);
+    }
+}
+
+public class MessageDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(new MessageTask("First Message"), "Thread-1");
+        Thread t2 = new Thread(new MessageTask("Second Message"), "Thread-2");
+        Thread t3 = new Thread(new MessageTask("Third Message"), "Thread-3");
+
+        t1.start();
+        t1.join();
+        t2.start();
+        t2.join();
+        t3.start();
+    }
+}
+
+
+
+
+class ExamThread extends Thread {
+    ExamThread(String name) {
+        super(name);
+    }
+
+    public void run() {
+        System.out.println(getName() + " is performing exam task");
+    }
+}
+
+class ResultTask implements Runnable {
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " is processing results");
+    }
+}
+
+public class ThreadDemo {
+    public static void main(String[] args) {
+        new ExamThread("ExamThread-1").start();
+        new ExamThread("ExamThread-2").start();
+
+        new Thread(new ResultTask(), "ResultThread-1").start();
+        new Thread(new ResultTask(), "ResultThread-2").start();
+    }
+}
