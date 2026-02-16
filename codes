@@ -1,0 +1,252 @@
+#!/bin/bash
+############################################################
+################ EXP 5 : SIMPLE PROGRAMS ####################
+############################################################
+
+
+echo "---- Q2 Quadratic Roots ----"
+echo "Enter a b c"
+read a b c
+d=$(echo "$b*$b - 4*$a*$c" | bc)
+sqrt=$(echo "scale=2; sqrt($d)" | bc)
+r1=$(echo "scale=2; (-$b + $sqrt)/(2*$a)" | bc)
+r2=$(echo "scale=2; (-$b - $sqrt)/(2*$a)" | bc)
+echo "Roots: $r1 $r2"
+echo "------------------------------------"
+
+
+echo "---- Q3 Arithmetic Operations ----"
+echo "Enter two numbers"
+read a b
+echo "Sum = $((a+b))"
+echo "Sub = $((a-b))"
+echo "Mul = $((a*b))"
+echo "Div = $((a/b))"
+echo "------------------------------------"
+
+
+echo "---- Q4 Student Details ----"
+echo "Enter name roll marks"
+read name roll marks
+echo "Name: $name Roll: $roll Marks: $marks"
+echo "------------------------------------"
+
+
+echo "---- Q5 Circle Area & Circumference ----"
+echo "Enter radius"
+read r
+area=$(echo "3.14*$r*$r" | bc)
+circ=$(echo "2*3.14*$r" | bc)
+echo "Area=$area Circ=$circ"
+echo "------------------------------------"
+
+
+echo "---- Q6 Celsius to Fahrenheit ----"
+echo "Enter Celsius"
+read c
+f=$(echo "scale=2;(9*$c/5)+32" | bc)
+echo "Fahrenheit=$f"
+echo "------------------------------------"
+
+
+echo "---- Q7 Swap Two Numbers ----"
+echo "Enter two numbers"
+read a b
+temp=$a; a=$b; b=$temp
+echo "After swap: $a $b"
+echo "------------------------------------"
+
+
+echo "---- Q8 SI & CI ----"
+echo "Enter P T R"
+read p t r
+si=$(echo "scale=2;($p*$t*$r)/100" | bc)
+ci=$(echo "scale=2;$p*(1+$r/100)^$t - $p" | bc)
+echo "SI=$si CI=$ci"
+echo "------------------------------------"
+
+
+
+############################################################
+############### EXP 6 : CONDITIONAL PROGRAMS ###############
+############################################################
+
+echo "---- Display Lines Between Numbers ----"
+echo "Enter file start end"
+read file s e
+lines=$((e-s+1))
+head -n $e $file | tail -n $lines
+echo "------------------------------------"
+
+
+echo "---- Count Processes & Users ----"
+pro=$(ps | wc -l)
+users=$(who | wc -l)
+echo "Processes=$pro Users=$users"
+echo "------------------------------------"
+
+
+echo "---- Prime Check ----"
+echo "Enter number"
+read n
+flag=0
+for((i=2;i<=n/2;i++))
+do
+ if [ $((n%i)) -eq 0 ]; then flag=1; fi
+done
+[ $flag -eq 0 ] && echo "Prime" || echo "Not Prime"
+echo "------------------------------------"
+
+
+echo "---- Delete Name from Phonebook ----"
+echo "Enter name"
+read name
+grep -v "$name" phonebook > temp && mv temp phonebook
+echo "Deleted"
+echo "------------------------------------"
+
+
+echo "---- Leap Year ----"
+echo "Enter year"
+read y
+if [ $((y%400)) -eq 0 ] || [ $((y%4)) -eq 0 -a $((y%100)) -ne 0 ]
+then echo "Leap"; else echo "Not Leap"; fi
+echo "------------------------------------"
+
+
+echo "---- Grade ----"
+echo "Enter marks"
+read m
+if [ $m -ge 90 ]; then echo "A"
+elif [ $m -ge 75 ]; then echo "B"
+elif [ $m -ge 50 ]; then echo "C"
+else echo "Fail"; fi
+echo "------------------------------------"
+
+
+echo "---- Compare Strings ----"
+echo "Enter two strings"
+read a b
+[ "$a" = "$b" ] && echo "Equal" || echo "Not Equal"
+echo "------------------------------------"
+
+
+echo "---- Employee Salary ----"
+echo "Enter basic pay"
+read b
+hra=$(echo "0.2*$b" | bc)
+da=$(echo "0.1*$b" | bc)
+tax=$(echo "0.05*$b" | bc)
+salary=$(echo "$b+$hra+$da-$tax" | bc)
+echo "Salary=$salary"
+echo "------------------------------------"
+
+
+echo "---- Compare Files ----"
+echo "Enter two files"
+read f1 f2
+if cmp -s $f1 $f2; then rm $f2; echo "Deleted $f2"; else echo "Different"; fi
+echo "------------------------------------"
+
+
+echo "---- Greeting ----"
+h=$(date +%H)
+if [ $h -lt 12 ]; then echo "Good Morning"
+elif [ $h -lt 18 ]; then echo "Good Afternoon"
+else echo "Good Evening"; fi
+echo "------------------------------------"
+
+
+
+############################################################
+################ EXP 7 : CASE PROGRAMS ######################
+############################################################
+
+echo "---- Calculator ----"
+echo "Enter two numbers and operator"
+read a b op
+case $op in
++) echo $((a+b));;
+-) echo $((a-b));;
+\*) echo $((a*b));;
+/) echo $((a/b));;
+*) echo "Invalid";;
+esac
+echo "------------------------------------"
+
+
+echo "---- Area Menu ----"
+echo "1.Circle 2.Square 3.Rectangle 4.Triangle"
+read ch
+case $ch in
+1) read r; echo $(echo "3.14*$r*$r"|bc);;
+2) read a; echo $((a*a));;
+3) read l b; echo $((l*b));;
+4) read b h; echo $(echo "0.5*$b*$h"|bc);;
+esac
+echo "------------------------------------"
+
+
+echo "---- Linux Command Menu ----"
+echo "1.ls 2.date 3.who 4.pwd 5.cal"
+read ch
+case $ch in
+1) ls;; 2) date;; 3) who;; 4) pwd;; 5) cal;;
+esac
+echo "------------------------------------"
+
+
+echo "---- Number in Words ----"
+read n
+case $n in
+1) echo One;; 2) echo Two;; 3) echo Three;; 4) echo Four;; 5) echo Five;;
+*) echo OutOfRange;;
+esac
+echo "------------------------------------"
+
+
+echo "---- Conversion Menu ----"
+echo "1.Dollar->Rs 2.CM->M 3.C->F"
+read ch
+case $ch in
+1) read d; echo $((d*83));;
+2) read cm; echo $(echo "$cm/100"|bc -l);;
+3) read c; echo $(echo "(9*$c/5)+32"|bc);;
+esac
+echo "------------------------------------"
+
+
+echo "---- MCQ Checker ----"
+echo "Capital of India? a)Mumbai b)Delhi c)Kolkata"
+read ans
+case $ans in
+b) echo Correct;; a|c) echo Wrong;; *) echo Invalid;;
+esac
+echo "------------------------------------"
+
+
+echo "---- Character Type ----"
+read ch
+case $ch in
+[a-z]) echo Lowercase;;
+[A-Z]) echo Uppercase;;
+[0-9]) echo Digit;;
+*) echo Special;;
+esac
+echo "------------------------------------"
+
+
+echo "---- Traffic Signal ----"
+read s
+case $s in
+red) echo STOP;; yellow) echo WAIT;; green) echo GO;;
+esac
+echo "------------------------------------"
+
+
+echo "---- Train Route ----"
+echo "1.Delhi-Mumbai 2.Patna-Kolkata"
+read ch
+case $ch in
+1) echo Rajdhani;; 2) echo Howrah;;
+esac
